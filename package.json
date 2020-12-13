@@ -1,0 +1,49 @@
+{
+  "name": "trailhead",
+  "version": "0.0.1",
+  "description": "A utility to find paths through data structures",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vriad/trailhead"
+  },
+  "author": "Colin McDonnell <colin@colinhacks.com>",
+  "license": "MIT",
+  "sideEffects": false,
+  "bugs": {
+    "url": "https://github.com/vriad/trailhead/issues"
+  },
+  "homepage": "https://github.com/vriad/trailhead",
+  "dependencies": {
+    "axios": "^0.19.2"
+  },
+  "tags": [],
+  "keywords": [],
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/__tests__/*"
+  ],
+  "scripts": {
+    "clean": "rm -rf lib/*",
+    "build": "yarn run clean && tsc --p tsconfig.package.json",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "test": "jest --config jestconfig.json --coverage",
+    "prepublishOnly": "npm run build",
+    "play": "nodemon -e ts -w . -x ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2",
+    "prettier": "^2.0.5",
+    "ts-jest": "^25.2.1",
+    "typescript": "^4.1.0-beta"
+  }
+}
