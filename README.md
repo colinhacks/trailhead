@@ -17,14 +17,15 @@ import { trailhead } from 'trailhead';
 
 type Data = {
   firstName: string;
+  array: string[];
+  nest: {
+    nest: {
+      firstName: string;
+    };
+  };
   arrayObject: {
     firstName: string;
     lastName: string;
-  }[];
-  arrayObjectDeep: {
-    firstName: string;
-    lastName: string;
-    deeper: string[];
   }[];
 };
 
@@ -33,6 +34,7 @@ const test = trailhead<Data>();
 console.log(test); // => { __path: [] }
 console.log(test.firstName); // => { __path: ["firstName"] }
 console.log(test.array[5]); // => { __path: ["array", 5] }
+console.log(test.nest.nest.firstName); // => { __path: ["nest", "nest", "firstName"] }
 console.log(test.arrayObject); // => { __path: ["arrayObject"] }
 console.log(test.arrayObject[5]); // => { __path: ["arrayObject", 5, "firstName"] }
 console.log(test.arrayObject[5].firstName); // => { __path: ["arrayObject", 5, "firstName"] }
